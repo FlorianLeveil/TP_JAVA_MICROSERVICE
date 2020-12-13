@@ -1,0 +1,67 @@
+API:
+GET ALL http://127.0.0.1:8084/api/garages/
+GET ONE http://127.0.0.1:8084/api/garages/2
+GET ALL http://127.0.0.1:8084/api/voitures/
+GET ONE http://127.0.0.1:8084/api/voitures/2
+GET ALL http://127.0.0.1:8084/api/garagevoiture/
+GET ONE http://127.0.0.1:8084/api/garagevoiture/garageid/1
+GET ALL http://127.0.0.1:8084/api/garagevoiture/morethanfourvoiture/
+GET     http://127.0.0.1:8084/api/garagevoiture/garageinformation/15
+GET     http://127.0.0.1:8084/api/garagevoiture/voiturename/Cupra_Leon
+
+DELETE http://127.0.0.1:8084/api/garages/4
+DELETE http://127.0.0.1:8084/api/voitures/1
+
+PUT http://127.0.0.1:8084/api/garages/1
+PUT http://127.0.0.1:8084/api/voitures/1
+
+
+CREATE VOITURE
+
+curl -X POST -i 'http://127.0.0.1:8084/api/voitures/' -H "Content-Type: application/json" --data '{
+"garageId" : 1,
+"year" : "2000",
+"model" : "Seat_Ibiza"
+}'
+
+curl -X POST -i 'http://127.0.0.1:8084/api/voitures/' -H "Content-Type: application/json" --data '{
+"garageId" : 2,
+"year" : "2006",
+"model" : "RS6"
+}'
+
+curl -X POST -i 'http://127.0.0.1:8084/api/voitures/' -H "Content-Type: application/json" --data '{
+"garageId" : 3,
+"year" : "2020",
+"model" : "Cupra_Leon"
+}'
+
+CREATE GARAGE
+
+curl -X POST -i 'http://127.0.0.1:8084/api/garages/' -H "Content-Type: application/json" --data '{
+"name" : "Total",
+"city" : "Arsac"
+}'
+
+curl -X POST -i 'http://127.0.0.1:8084/api/garages/' -H "Content-Type: application/json" --data '{
+"name" : "Brabus",
+"city" : "Bordeaux"
+}'
+
+curl -X POST -i 'http://127.0.0.1:8084/api/garages/' -H "Content-Type: application/json" --data '{
+"name" : "IDK RACING",
+"city" : "Rennes"
+}'
+
+UPDATE GARAGE / VOITURE
+
+curl -X PUT -i 'http://127.0.0.1:8084/api/voitures/2' -H "Content-Type: application/json" --data '{
+"garageId" : 2,
+"year" : "2020",
+"model" : "New Cupra_Leon"
+}'
+
+curl -X PUT -i 'http://127.0.0.1:8084/api/garages/1' -H "Content-Type: application/json" --data '{
+"name" : "MDR",
+"city" : "le pere noel"
+}'
